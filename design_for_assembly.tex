@@ -1,0 +1,41 @@
+\subsection{Design For Assembly}
+\begin{table}[h]
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}{l c c c c c c c }
+\toprule
+ &  & \multicolumn{2}{c}{\textbf{Manual Handling}} & \multicolumn{2}{c}{\textbf{Insertion}} & \multicolumn{2}{c}{\textbf{Operation Time}} \\
+ \cmidrule(lr){3-4} \cmidrule(lr){5-6} \cmidrule(lr){7-8}
+\textbf{Item} & \textbf{QTY} & \textbf{Code} & \textbf{Time (s)} & \textbf{Code} & \textbf{Time (s)} & \textbf{Single (s)} & \textbf{Total (s)} \\
+%\multicolumn{1}{l}{Item} & \multicolumn{1}{c}{QTY} & \multicolumn{1}{c}{code} & \multicolumn{1}{c}{Time} \multicolumn{1}{c}{banter} & \multicolumn{1}{c}{Time} & \multicolumn{1}{c}{Single} & \multicolumn{1}{c}{Total}\\
+\midrule
+\textbf{Attach sideplate to bulkhead} & 2 & & & & & & \\
+Place bulkhead upright on table & 1 & 1.0 & 1.5 & \textemdash & \textemdash & 1.5 & 1.5 \\
+Place side plate next to bulkhead & 1 & 1.0 & 1.5 & 0.0 & 1.5 & 3 & 3  \\
+Screw into place & 3 & 0.1 & 1.43 & 3.9 & 8 & 9.43 & 28.29 \\
+\midrule
+\textbf{Attach top shell} & 1 & & & & & & \\
+Place top shell on assy & 1 & 1.0 & 1.5 & \textemdash & \textemdash & 1.5 & 1.5 \\
+Screw into place & 4 & 0.1 & 1.43 & 3.9 & 8 & 9.43 & 37.72 \\
+\midrule
+\textbf{Attach upper front shell} & 1 & & & & & & \\
+Place assy bulkhead-down & 1 & 1.0 & 1.5 & \textemdash & \textemdash & 1.5 & 1.5 \\
+Place upper front shell on assy & 1 & 1.0 & 1.5 & 0.0 & 1.5 & 3 & 3 \\
+Screw into place & 4 & 0.1 & 1.43 & 3.9 & 8 & 9.43 & 37.72 \\
+\midrule
+\textbf{Attach lower front shell} & 1 & & & & & & \\
+Place lower front shell on assy & 1 & 1.0 & 1.5 & \textemdash & \textemdash & 1.5 & 1.5 \\
+Screw into place & 4 & 0.1 & 1.43 & 3.9 & 8 & 9.43 & 37.72 \\
+\midrule
+\textbf{Attach upper front shell} & 1 & & & & & & \\
+Place assy bulkhead-down & 1 & 1.0 & 1.5 & \textemdash & \textemdash & 1.5 & 1.5 \\
+Place upper front shell on assy & 1 & 1.0 & 1.5 & 0.0 & 1.5 & 3 & 3 \\
+Screw into place & 4 & 0.1 & 1.43 & 3.9 & 8 & 9.43 & 37.72 \\
+\midrule
+\multicolumn{3}{l}{\textbf{Front Module Total Assembly Time}} & \multicolumn{5}{c}{\textbf{231.46}}\\
+\bottomrule
+\end{tabular}
+}
+\caption{Boothroyd-Dewhurst analysis of Cyclone's Front Module}
+\label{tab:boothcyclonefm}
+\end{table}

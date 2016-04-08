@@ -1,0 +1,50 @@
+\subsection{Chassis Evaluation and Redesign}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Chassis Overview}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Traditionally, the term Chassis refers to a self-moving subassembly that includes a structure to carry a vehicle’s components, suspension, wheels, the steering system, the brake system and the transmission \cite{Gent09}. The field of robotics, however, often refers to the chassis simply as the structural framework of the robot, a definition adopted by previous WMR teams \cite{WMR15}.\par
+The purpose of USAR robots is often to assist in environments too difficult or dangerous for humans to enter. This danger could be from radiation, heat, dangerous chemicals or collapsing structures. It is therefore a necessity that the USAR’s containing structure is designed to be rigid and robust, such that any of the above risks are mitigated as much as possible. A similarly rigid outer shell is often added to ensure that foreign components cannot enter the chassis, such as dirt and liquids that may interfere with the robot’s internal systems. Thus, in the context of USAR, the chassis exists as a container and shield for internal components. Further still, heat dissipation through the chassis allows it to act as a heat sink for energy intensive electronics. \par
+Materials choice represents a key factor in the design of a robot chassis. Similar to in the automotive industry, a balance needs to be struck between weight and rigidity. The result is often some combination or choice between steel and aluminium, with other options such as carbon fibre reinforced polymers remaining out of the realms of cost-effectiveness for the foreseeable future \cite{Davies12}. \par
+Given the risks of damage in the field, the next important consideration is ease of replacement and fast reassembly. Previous WMR teams have placed importance on the manufacturability of robot’s components, as this will facilitate a finished robot by the end of the project \cite{WMR15}, \cite{WMR14} and makes for simple replacement at the RoboCup competition. Another perspective however, is that a reduction in individual components facilitates more than is possible with simple components \cite{Boothroyd10}, though time to manufacture may increase earlier in the process. \par
+Finally, the joining processes must be considered. Even the simplest products may be impossible to manufacture from a single piece \cite{Kalpakjian10}, and though it may be possible with some structures to use a single block of material \cite{mcclean08}, the additional machining costs associated with such a decision often bring this out of the realms of feasibility. Whilst previous WMR teams have justified the use of mechanical fastenings to allow for disassembly and ease of replacement, stress distribution, corrosion and joint degradation could be substantially improved if adhesives can be used where appropriate \cite{Davies12}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Rationale for Previous Design}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A number of goals were outlined in the WMR 2015 report:\par
+
+\begin{longtable}{p{0.2\textwidth} p{0.75\textwidth}}
+\textbf{Dimension} &
+The overall size of the robot was dictated by building regulations, and an estimation that if the robot sits within a 90\% envelope of door and hallway sizes, it will be capable of turning and manoeuvring through buildings. Minimum internal volume specifications of $3.9 \times 10^{-3} m^3$ were also set, on the premise that there must be enough room for all internal components and extra space for air flow.\\
+\textbf{Weight} &
+As the robot is to be deployable by one person, 25kg was used as a weight maximum to meet health and safety recommendations on carrying weights. The chassis has been allowed 20\% of this weight, at 5kg. This specification was carried over to the current design.\\
+\textbf{Accessibility} &
+Access to the battery for fast removal was an important consideration for ease of use as well as health and safety. Li-Ion batteries can be dangerous if used improperly and thus it is important to be able to stop the system in a matter of seconds – 30 in this case.\\
+\textbf{Manufacture \& Assembly} &
+The team elected to stick to off the shelf components as much as possible to ensure that the robot could be easily assembled and repaired should there be damage to components. For similar reasons, it was dictated that any machining work required should be done from easily sourced materials using simple machining techniques to reduce lead time on replacement components.\\
+\textbf{Structure } &
+Finally, the team required that the chassis be capable of withstanding a fall force of 650N and a crash force of 250N, based on calculations of acceleration from the two cases and including a large factor of safety.\\
+\end{longtable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Critical Analysis of Previous Design}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Dimensions}
+The requirements set on dimensions worked well for WMR2015, but the inner workings of the robot were still moderately crammed in. The front and rear of the robot’s chassis were limiting in which components could reasonably fit in and items such as the motor controllers took up a large space in the centre module. It may have been more reasonable to open up the space in the rear of the chassis to make room for the controllers next to the motors themselves.
+\paragraph{Weight}
+Despite the team’s best efforts, the 2015 chassis weighed in at 5.57kg, 10\% greater than anticipated. This can be put largely down to the 10mm thick, solid baseplate that was used as the basis of the robot’s structure. The testing carried out by the team suggested that MakerBeam\textsuperscript{\textregistered} was more than strong enough to withstand the required forces, and that 10mm thick aluminium represented a far greater strength than needed. A thinner aluminium plate could have been used to achieve the required strengths without the same impact on overall weight. Some weight reduction through machining could have also been achieved to lose the weight in these key areas. This increase in weight inevitably impacts other areas of the robot whilst simultaneously increasing the required torque and slowing the speed of the robot. The shell of the robot was made entirely from 2mm thick aluminium sheets, representing an additional weight gain across the entire chassis.
+\paragraph{Accessibility}
+The robot’s battery was made easily accessible through a battery attachment that allowed fast clip-in/out. The panel used to do this was easily accessible, but access to the rest of the robot remained slightly more complicated, through a large access panel on the top of the robot. Although the panel itself was large, the arrangement of components meant that for many adjustments, more of the skin would have to be removed anyway.
+\paragraph{Manufacture and Assembly}
+The use of MakerBeam\textsuperscript{\textregistered} on the robot provided the team with an easy assembly for the robot and enabled the robot to be completed in a short time. However, the desired ease of reassembly was not achieved. This was largely down to the way in which individual, shelf-bought components were assembled together, with small screws and poor joining location choices. Ultimately, whilst parts could easily be sourced for replacement, the changeover itself would take far longer than could be deemed acceptable in a USAR situation, where time is very much of the essence. Furthermore, the MakerBeam\textsuperscript{\textregistered} was, in places, doubled up by the 10mm baseplate, giving no functional benefit and adding to assembly time unnecessarily. It is considered best practice, where assembly is concerned, to removed the need for extra assembly steps if similar materials are used and there is no relative motion between the parts nor need for the parts to be separate \cite{Boothroyd10}. Removing this redundant material would have further brought the weight of the chassis down. \par
+Machining work was kept to a minimum, but the machining processes used were less readily available than initially suggested, requiring specialist water jet cutting for a number of mission-critical components. The materials used were, fortunately, readily available, limiting sourcing issues. \par
+Ultimately these considerations are a product of the team’s goals. Entering a competition for search and rescue robots is a good opportunity to benchmark the performance of the robot, but if decisions are made based on performance in a competition and not performance in a search and rescue environment, then arguably the team have missed the entire point of the project.\par
+\paragraph{Structure}
+The rationale and justification for the structure chosen was achieved through physical testing of materials and simulation of crash situations. The only physical testing carried out, however, was a 3-point bending test on steel, aluminium and maker beam. This test, whilst useful for some situations, does not accurately represent the load conditions likely to be experienced by the chassis from drops or crashes, where the forces experienced are far more complex than those represented. It is, therefore, far more prudent to carry out simulations of chassis design in Solidworks\textsuperscript{\textregistered}, as is later done. The 3-point bending test should not have been used as the rationale for material choice, especially when MakerBeam\textsuperscript{\textregistered} performed significantly worse than the other materials used (different volumes of materials were also used for the materials resulting in a skewed test, even though the resulting factors were discussed qualitatively).
+
+%%%%%%%%%%%%%%% End of Finished Work %%%%%%%%%%%%%%%%%%
+
+
+\subsection{Banter}

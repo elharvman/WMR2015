@@ -1,0 +1,29 @@
+\subsection{Electronics Testing}
+\subsubsection{Control Results}
+Control of Cyclones motors via a PS3 controller over a network was tested. [FIGURE BELOW] shows the ROS node connections, it is generated from the in built ‘rqt\_graph' function. This proves the connections with topic successful published and subscribed to by each node.\par
+
+%[FIGURE – RQT_GRAPH LABELLED]
+
+This was achieved with the 2 launch files as discussed previously. Each of these files were launched from the laptop, by connecting to the robot’s Pico board via a secure shell (SSH).\par
+
+%[FIGURE – LAUNCH FILES LABELLED]
+
+\subsubsection{Control Critical Analysis}
+In order to achieve the best results with Cyclone, continuous testing was performed over the entirety of the project. One issue that was overcome, was the inherent PWM jitter due to the use of a low-cost Arduino micro-controller. This caused the motors to judder at zero velocity, as the duty ratio was not exactly 50:50. So not only would the robot move when it was expected to be stationary, but this also induced a large current draw due to the rapid changes in inertia. This was overcome by the introduction of an enable signal. This signal would fall low at a command for 0 velocity, shutting down the motors to ensure they were stationary.\par
+
+Secondly, there was an issue with ground loops and the correct galvanic isolation. These ground loops caused a difference in potential in the ground lines so the PWM signal output was floating. In addition, by reconfiguring the grounding scheme it prevented a large conducting current path through the communications ground line. An issue faced by last years team was inadequate grounding of the controllers units, which caused the USB controller IC in within the device to blow.\par
+
+\subsubsection{Battery Monitoring Results}
+The battery monitor board was tested and proved to produce the expected regulated outputs of 5V and 12V. The on-board ATmega328 functioned as expected;, being capable of shutting down the motors, monitoring the cell voltages and updating the LED board.\par
+
+\subsubsection{Battery Monitoring Critical Analysis}
+Although the board output a stable 12V, this dropped once loaded by the Pico board, and could not match the power demand placed upon it. This was overcome by changing R14 from 10kΩ to 330Ω, so the zener diodes reverse breakdown voltage in the latching circuitry was still reached with the increased load. Furthermore, the LED was removed as it was holding the micro-controller in reset by not allowing the current to flow into the ATmega328 pin. Equally, this could have been overcome by decreasing the value of the pullup resistor, if the operation of the LED was required.\par
+
+Besides the modifications stated above, only aesthetics would need to be modifying on a 2nd revision of the board. This would include, increasing the distance between the connectors to allow the wires greater freedom of movement and to allow the underlying silkscreens to be seen. Furthermore, making the pads larger would make solderijng easier.\par
+
+Finally, the regulators were intended to reside on the reverse side of the board to aid with heat dissipation to the chassis. However, due to a misunderstanding in the software they were mounted on the topside. It does not alter the performance of the board, but would be desirable to have them as they were intended.\par
+
+%[FIGURE – ACTUAL SOLDERED BAORD WITH USB ADAPTOR BOARD]
+
+\subsubsection{Robot Battery Life}
+This design of Cyclone considers the use of one Thunder Power 5000mAh LiPo battery. Therefore, in the worse case scenario of the motors running at full power (i.e: continuously up a standard stair angle) with the power draws as given in table \ref{tab:pwrreq}, the robot would last for $\approx$20 minutes. However, this is unlikely to be the case with a better approximation being $\approx$30 minutes, when under more ‘normal’ operating conditions. These approximations are inherently difficult to calculate due to the real-world effects associated with current draws and battery discharge rates. In the future, if required, a second battery could be incorporated to power an arm, or to increase the robot’s battery life should it be required for the competition.\par
