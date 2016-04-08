@@ -1,9 +1,9 @@
 \subsection{Suspension}
 \subsubsection{Why Use Suspension?}
-Suspension allows relative motion between the body of a vehicles and its wheels. This motion improves road holding by allowing the wheel and tyre to track the contours of the ground keeping the tyre in contact. Suspension also isolates the body of the vehicles from the uneven road surface, improving ride quality and comfort. Vibration and impacts on the vehicle are also reduced lowering the stress on components thus improving lifespan and reliability \cite{Jazar2009}. Overall, the use of suspension allows a vehicle to travel faster and more safely over rough terrain. Less energy is lost from the vehicle moving vertically and less energy is lost from the wheels spinning in mid-air.
+Suspension allows relative motion between the body of a vehicles and its wheels. This motion improves road holding by allowing the wheel and tyre to track the contours of the ground keeping the tyre in contact. Suspension also isolates the body of the vehicles from the uneven road surface, improving ride quality and comfort. Vibration and impacts on the vehicle are also reduced lowering the stress on components thus improving lifespan and reliability \cite{Jazar09}. Overall, the use of suspension allows a vehicle to travel faster and more safely over rough terrain. Less energy is lost from the vehicle moving vertically and less energy is lost from the wheels spinning in mid-air.
 
 \subsubsection{Rationale of Previous Design}
-The suspension design of the 2014-2015 version of Orion was a single-pivot swing arm design. A swing-arm rotates around a pivot at one end, whilst suspension is provided by a coil spring mounted part way along the swing arm. As the swing-arm rotates around the pivot the coli spring compresses, absorbing impacts. The idler assembly was mounted to the end of the swing-arm and also allowed to pivot to better conform to terrain. The coil spring was a “coil over damper” type with adjustable preload. The design was chosen because it had been proven in a larger scale in the Ripsaw EV1 \cite{Howe09}. The coil spring suspension design gave a travel of 12mm (approximately half of the maximum spring compression of 25mm), the design has ground clearance of 100mm.
+The suspension design of the 2014-2015 version of Orion was a single-pivot swing arm design. A swing-arm rotates around a pivot at one end, whilst suspension is provided by a coil spring mounted part way along the swing arm. As the swing-arm rotates around the pivot the coil spring compresses, absorbing impacts. The idler assembly was mounted to the end of the swing-arm and also allowed to pivot to better conform to terrain. The coil spring was a “coil over damper” type with adjustable preload. The design was chosen because it had been proven in a larger scale in the Ripsaw EV1 \cite{Howe09}. The coil spring suspension design gave a travel of 12mm (approximately half of the maximum spring compression of 25mm), the design has ground clearance of 100mm.
 
 \subsubsection{Critical Analysis of Previous Design}
 The most glaring issue with the previous suspension design is that it function is compromised due to a number of factors. The coil spring design was said to have 12mm of travel, however the actual suspension travel is 0mm. This is because sag was seemingly missed from suspension calculations. Sag is compression of the suspension when the vehicle sits on the ground. The robot’s suspension sags and allows a bolt head to contact the outer plate of the suspension mount, stopping the suspension from compressing at all (this can be seen in Figure \ref{fig:LHOrion}). \par
@@ -61,7 +61,7 @@ The spring rate of torsion bars can be changed by changing the the diameter of t
 \[ k = \frac{ \pi\times d^4 \times G}{32L} \]
 \[k = spring\:rate\:(N/m), d = diameter\:(m), G = Young's\:modulus\:(N/m^2), L = length\:(m)\]
 
-There are some disadvantages, however. Torsion bars do not self-damp \cite{Hohl85}, so either dampers will need to be included in the design or not used. Whilst not using dampers for a fast-moving tracked vehicle would be unfeasible the robot travel at a maximum speed of 0.5m/s and will weigh less than 25kg. Firstly, it is likely that the robot will be travelling too slowly for any large oscillations to be induced and secondly there will be a degree of coulomb (sliding friction) damping \cite{Persson00}in the suspension system, especially the dynamic tensioners which will feature steel rod sliding through an aluminium block in the direction opposite to suspension compression or extension. Secondly, the spring rate of torsion bars is linear, not progressive as coil springs are \cite{Hohl85}. For larger vehicles progressive spring rates are preferable, however it is an acceptable compromise in return for a robust and simple suspension system.
+There are some disadvantages, however. Torsion bars do not self-damp \cite{Hohl85}, so either dampers will need to be included in the design or not used. Whilst not using dampers for a fast-moving tracked vehicle would be unfeasible the robot travel at a maximum speed of 0.5m/s and will weigh less than 25kg. Firstly, it is likely that the robot will be travelling too slowly for any large oscillations to be induced and secondly there will be a degree of coulomb (sliding friction) damping \cite{Persson00} in the suspension system, especially the dynamic tensioners which will feature steel rod sliding through an aluminium block in the direction opposite to suspension compression or extension. Secondly, the spring rate of torsion bars is linear, not progressive as coil springs are \cite{Hohl85}. For larger vehicles progressive spring rates are preferable, however it is an acceptable compromise in return for a robust and simple suspension system.
 
 Overall it was deemed that the advantages of torsion bar suspension, namely; simplicity, light weight, robustness, the potential for adjustability, no reduction in internal volume and good packaging outweighed the disadvantages of no inherent damping and linear spring rate. 
 
@@ -72,14 +72,13 @@ To summarise, torsion bar suspension was chosen for the following reasons in Tab
 \centering
 \begin{tabular}{l}
 \hline
-\textbf{Good suspension performance}\\
-\hline
+Good performance\\
 No internal volume lost\\
-Potential for adjustability\\
+Adjustable\\
 Robust\\
 Simple\\
 Easy to manufacture\\
-Will not protrude past outside line of track\\
+Low external profile\\
 \hline
 \end{tabular}
 \caption{Reasons for Torsion Bar Suspension}
@@ -89,7 +88,12 @@ When designing the torsion bar suspension, it was a priority to keep all parts a
 
 Suspension design was started by calculating the dimensions of the components critical to the function of the suspension. Firstly, the amount of suspension travel needed to be decided. The previous design had a total spring travel of 25mm, allowing a maximum compression of 12mm, as spring are not recommended to compress more than half of their travel. There is no maximum travel of torsion bar suspension. As long as the shear stress in the torsion bar does not exceed the shear modulus of the material the suspension will continue to function. It was decided that a reasonable twist angle under maximum compression (dropping the robot from 350mm) was 20° (0.35rad) from the starting position to the horizontal. This gave approximately 27mm, 2.25 times the travel of Orion. The suspension was able to rotate a further 5.7° (0.1rad) past the horizontal before bottoming out. This zone is not intended for normal operation and is there to prevent the suspension from running out of travel and contracting the shell.\par
 
-\[T= sin(\theta) \times L \]\[T = sin(0.35) \times 80 = 27mm\]
+\begin{equation}
+T= sin(\theta) \times L
+\end{equation}
+
+\[T = sin(0.35) \times 80 = 27mm\]
+
 
 Figure \ref{fig:SwingDiag} shows the path of the swing-arm under compression. The swing-arm starts at “S”, the neutral position and can be compressed normally to anywhere in the zone marked by the green dotted line. The swing angle (Θ$_1$ ) in this zone is 20° (0.35rad). The zone marked by the red dotted line is the extra travel which is not meant to be used but guards against the swing-arm from contacting the chassis during compression. The swing angle (Θ$_2$ ) in this zone is 5.7° (0.1rad).
 
@@ -102,29 +106,55 @@ Figure \ref{fig:SwingDiag} shows the path of the swing-arm under compression. Th
 Another consideration of travel is ground clearance and centre of gravity. The centre of gravity of Orion 2014 was relatively high \textcolor{red}{(prove this)}and it was felt that the robot did not need as much clearance.\par SAY SOMETHING
 
 Having determined the length of the swing-arm and the swing angle for the travel needed when dropped from 350mm the force of this drop was calculated given a robot weight of 25kg. The force was calculated to be 738N (3 S.F) per corner, giving a torque on the torsion bar of 62.7N (3 S.F).\par
-\[ F = \frac{m \times g \times h}{stopping\:distance} = \frac{25 \times 9.81 \times 0.35}{0.0274} = 3132.775N\]
+\begin{equation}
+ F = \frac{m \times g \times h}{stopping\:distance} = \frac{25 \times 9.81 \times 0.35}{0.0274} = 3132.775N
+\end{equation}
+
 \[\frac{3132.775}{4} = 783.189N \approx 783N\]
-\[ T = F \times d\ = 783.189 \times 0.08 = 62.655Nm\]
+
+\begin{equation}
+T = F \times d\ = 783.189 \times 0.08 = 62.655Nm
+\end{equation}
+
 The polar moment of inertia of a torsion bar of a given cross-section was calculated as well as the length of bar needed to allow a 20°m swing angle for three materials of bar (magnesium, aluminium and steel). The sections considered were cylindrical and rectangular The dimensions of the torsion bar and blade were modified in an Excel model to give a suitable length of bar that would allow good adjustability. 
 
-\[ Circular\:section: J = \frac{\pi(d^4)}{32} \]
+\begin{equation}
+Circular\:section: J = \frac{\pi(d^4)}{32}
+\end{equation}
+
 \[J = \frac{\pi(0.006)^4}{32} = 12.72\times 10^{-11}m^4\]
-\[Rectangular\: section: J = \frac{bh}{12}(b^2 + h^2)\]
+
+\begin{equation}
+Rectangular\: section: J = \frac{bh}{12}(b^2 + h^2)
+\end{equation}
+
+
 \[J = \frac{0.00635\times0.002}{12}(0.00635^2 + 0.002^2) = 4.69\times10^{-11}m^4\]
 
 The minimum maximum length of torsion bar needed to absorb a fall from 350mm if the robot were to weight 25kg was calculated. The overall width of the robot was to remain the same, therefore the maximum length of the torsion bars was 119mm, leaving a 10mm gap between the left- and right-hand bars. Subtracting material thicknesses gave an adjustable range of 99mm. Torsion bar lengths were calculated for all materials. The results showed that the most suitable material for a torsion bar was 6mm diameter aluminium, needing a length of 49.0mm to absorb the fall; a steel torsion blade (6.35mm by 2mm) needed to be 52.4mm. Both lengths give a wide range of adjustability in the 99mm maximum length, allowing the suspension to be softened and lowered or stiffened and raised as needed.\par
 
-\[Length = \frac{\theta(J \times G)}{T}\]\[\theta = Twist\:angle (radians), J = polar\:moment\:of\:inertia (m^4), G = Young's\:modulus (N/m^2), T = Torque (Nm)\]
+\begin{equation}
+Length = \frac{\theta(J \times G)}{T}
+\end{equation}
+
+\[\theta = Twist\:angle\:(radians), J = polar\:moment\:of\:inertia (m^4),\]
+\[G = Young's\:modulus (N/m^2), T = Torque (Nm)\]
+
 \[Aluminium\:bar: L = \frac{0.35(12.72\times 10^{-11} \times 45 \times 10^{-9})}{62.64}\]
 \[L = 0.0490m = 49.0mm\]
+
 \[Steel\:blade: L = \frac{0.35(4.69\times10^{-11} \times 200 \times 10^{9})}{62.64}\]
 \[L = 0.0524m = 52.4mm\]
 The steel blade was more suitable because of the higher sheer modulus of steel (79GPa) against aluminium (25.5GPa) (Crandall78), which is critical as the torsion bars will experience significant shear force. Furthermore, from a manufacturability standpoint it would be easier to fix a flat blade to other component than a cylindrical bar. Using a steel torsion bar was investigated but found to be unfeasible due to the small diameter required for a good range of adjustability.
 
 Spring rate was calculated to determine the spring rate of needed for the dynamic tensioning system. The spring rate of all materials and their respective lengths was the same as they all had to absorb the energy from the drop, therefore the spring rate was calculated using the data for the 6mm aluminium bar, as is simplified calculations.
 
-\[Spring\:rate = \frac{\pi \times d^4 \times G}{34L}\]
+\begin{equation}
+Spring\:rate = \frac{\pi \times d^4 \times G}{34L}
+\end{equation}
+
 \[Spring\: rate = \frac{\pi \times 0.006^2 \times 45\times10^{9}}{34\times 0.00490} = 179.0 N/m\]
+
 A rail system with a movable anchor point for the torsion blade was designed to allow the effective length to be varied to adjust spring rate and therefore travel and ground clearance. The rail system would be made from MakerBeam. There were concerns that the “wings” of the MakerBeam would not withstand the tensile and compressive forces subjected to the suspension during compression. A simulation was run on on the MakerBeam rails (Figure \ref{fig:SuspensionSim3}), subjecting one side to tensile stress and the other to compressive stress, as would happen when the suspension is compressed and the blade under torsion, which is then transferred to the baseplate via the MakerBeam. The tensile and compressive loads simulated were 10000N, significantly higher than the robot would see under normal operation. The MakerBeam plastically deformed by approximately 0.01mm and is subjected to stress of \textcolor{red}{INSERT INFO HERE}.
 
 \begin{figure}[h]
@@ -144,20 +174,23 @@ INSERT IMAGES OF BOTH SAs
 
 2014/2015’s Orion used 8 small sealed ball-bearing cartridges (4mm I.D, 5mm width) through which all the impact force from the terrain was transferred into the chassis. To improve on this polymer plain bearings were used, again 8, however width was 10mm, providing double the bearing surface. A second advantage of was that the polymer will not corrode, unlike the previous steel bearings. The robot could operate in harsh environmental conditions making corrosion resistance a consideration.
 
-The torsion bar suspension set-up fitted to Cyclone was designed using the lessons learnt form Orion as guidance. The problems highlighted in the critical analysis of the suspension are all problems which could disable the robot in the field and the new design sought to address theses. The torsion bar suspension, while undamped, did address the issues of the coil spring design and would provide a more robust system that is also simpler. 
+The torsion bar suspension set-up fitted to Cyclone was designed using the lessons learnt form Orion as guidance. The problems highlighted in the critical analysis of the suspension are all problems which could disable the robot in the field and the new design sought to address theses. The torsion bar suspension, while undamped, did address the issues of the coil spring design and would provide a more robust system that is also simpler. Table \ref{fig:SusComp} compares the suspension systems of Orion and Cyclone.
 
 \begin{table}[h]
+\centering
 \begin{tabular}{l l l}
 \hline
 \textbf{} & \textbf{Orion 2014} & \textbf{Orion 2016}\\
 \hline
 Travel & 12mm & 27mm\\
-Ground Clearance & & \\
-Adjustability & & \\
-Parts Count & & \\
+Ground Clearance & 100mm & 93mm \\
+Adjustability & Fixed travel \& ground clearance&  Adjustable travel \& ground clearance\\
+Pivot Points & 16 & 8\\
+Parts Count & 16 & 16\\
 \hline
 \end{tabular}
-\caption{comparison table}
+\caption{Comparison of Orion's and Cyclone's Suspension}
+\label{fig:SusComp}
 \end{table}
 
 \subsubsection{Simulation of Suspension Components}
@@ -166,10 +199,20 @@ To assist the design and validation of the suspension components stress simulati
 
 \paragraph{Blade Adapter}
 
-Figure XX is a simulation applying 783N (the calculated force on one suspension assembly when dropped from 350mm) in the Y-axis to the smaller diameter section of the blade adapter. This simulated what would happen if the torsion blades were set far too short and not allowed to function as springs. This would transfer all of drop force into the blade adapter. From the image it is clear that the maximum stress (134.9MPa) is lower than the yield stresses of 6063-T6 aluminium (215MPa) (Davis93) and silver steel (640MPa) (Smith94). The decision was made to manufacture the component from silver steel as it allows a greater factor of safety as well as a better bearing surface when compared to aluminium. Furthermore, the average stress on the blade adapter is 50MPa, 5x lower than the yield stress of silver steel.
+Figure \ref{fig:BladeAdapterSim} is a simulation applying 783N (the calculated force on one suspension assembly when dropped from 350mm) in the Y-axis to the smaller diameter section of the blade adapter. This simulated what would happen if the torsion blades were set far too short and not allowed to function as springs. This would transfer all of drop force into the blade adapter. From the image it is clear that the maximum stress (134.9MPa) is lower than the yield stresses of 6063-T6 aluminium (215MPa) (Davis93) and silver steel (640MPa) (Smith94). The decision was made to manufacture the component from silver steel as it allows a greater factor of safety as well as a better bearing surface when compared to aluminium. Furthermore, the average stress on the blade adapter is 50MPa, 5x lower than the yield stress of silver steel.
 
 \begin{figure}[h]
 \centering\includegraphics[width=0.6\linewidth]{Images/MaxImages/BladeAdapterSim.png}
 \caption{Simulation of the Blade Adapter}
 \label{fig:BladeAdapterSim}
+\end{figure}
+
+\paragraph{Torsion Blade and Blade Adapter}
+
+Simulations investigating the shear stress on the torsion blade and  blade adapter were also run. When a torque of 62.64 Nm (the torque when dropped from 350mm) is applied to the blade adapter the maximum shear stress on blade adapter is 4042MPa (4.042GPa), the minimum stress is -7237MPa (-7.237GPa), which can be treated as 7237MPa (7.237GPa). The shear modulus of steel is 79GPa (Crandall78), giving a factor of safety of over 10x. The average shear stress on the blade adapter is around 80MPa (0.08GPa) and around 1800MPa (1.8GPa) on the torsion blade, as seen in Figure \ref{fig:TorsionBladeandAdapter}, and will therefore have an even greater factor of safety. This means that during normal operation the shear stresses exerted on the blade adapter and torsion blade will not cause the components to plastically deform.
+
+\begin{figure}[h]
+\centering\includegraphics[width=0.6\linewidth]{Images/MaxImages/TorsionBladeandAdapter.png}
+\caption{Simulation of the Torsion Blade and Blade Adapter}
+\label{fig:TorsionBladeandAdapter}
 \end{figure}
